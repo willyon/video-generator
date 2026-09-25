@@ -1,0 +1,22 @@
+{
+  "name": "video-generator",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev -w @video-generator/api\" \"npm run dev -w @video-generator/web\"",
+    "dev:api": "npm run dev -w @video-generator/api",
+    "dev:web": "npm run dev -w @video-generator/web",
+    "build": "npm run build -w @video-generator/web",
+    "check": "npm run check -w @video-generator/api && npm run build -w @video-generator/web"
+  },
+  "dependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "allowScripts": {
+    "better-sqlite3@12.11.1": true,
+    "esbuild@0.25.12": true
+  }
+}
